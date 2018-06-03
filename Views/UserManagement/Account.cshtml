@@ -1,0 +1,89 @@
+﻿@model MVCProject.DAL.URM00
+
+@{
+    ViewBag.Title = "Hesabım";
+    MVCProject.DAL.URM00 loginUser = (MVCProject.DAL.URM00)Model;
+
+    string personImage = string.Empty;
+    string personNoImage = "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";
+
+    if (loginUser.URM00_IMG != null && loginUser.URM00_IMG.Length > 0)
+    {
+        personImage = string.Format("data:image/png;base64, {0}", Convert.ToBase64String(loginUser.URM00_IMG));
+    }
+    else
+    {
+        personImage = string.Format("data:image/png;base64, {0}", personNoImage);
+    }
+}
+
+<div class="col-md-9 col-md-push-3">
+    <div class="page-header text-center">
+        <h1>Hesabım</h1>
+        <p>Hesap bilgilerini güncelle</p>
+    </div><!-- End .page-header -->
+
+    @using (Html.BeginForm("_UpdateInformation", "UserManagement", FormMethod.Post, new { @id = "formAccount", @enctype = "multipart/form-data", @class = "signup-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <input type="hidden" name="URM00_CODE" value="@loginUser.URM00_CODE">
+            <div class="col-sm-12">
+                <div class="form-group text-center">
+                    <img class="img-circle" src="@personImage" alt="@loginUser.FIRSTNAME" title="@loginUser.FIRSTNAME" width="200px" height="200px" />
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Ad*</label>
+                    <input type="text" class="form-control" required name="FIRSTNAME" value="@loginUser.FIRSTNAME">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Soyad*</label>
+                    <input type="text" class="form-control" required name="SURNAME" value="@loginUser.SURNAME">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Email*</label>
+                    <input type="email" class="form-control" required name="EMAIL" value="@loginUser.EMAIL" disabled>
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+        </div><!-- End .row -->
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Şifre*</label>
+                    <input type="password" class="form-control" required name="URM00_PASSWD">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Telefon*</label>
+                    <input type="text" class="form-control" required name="PHONE_1" value="@loginUser.PHONE_1">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Resim*</label>
+                    <input type="file" class="form-control" name="URM00_IMG">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+        </div><!-- End .row -->
+
+        <div class="clearfix form-action">
+            <input type="submit" class="btn btn-primary min-width" value="Güncelle">
+        </div><!-- End .form-action -->
+    }
+</div><!-- End .col-md-9 -->

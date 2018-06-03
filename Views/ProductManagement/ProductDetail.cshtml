@@ -1,0 +1,76 @@
+﻿@model MVCProject.BLL.ModelList
+
+@{
+    MVCProject.DAL.MMM00 product = (MVCProject.DAL.MMM00)Model.d1;
+    MVCProject.BLL.GeneralOp generalOp = new MVCProject.BLL.GeneralOp();
+    ViewBag.Title = string.Format("{0} | Ürün Detay", product.MMM00_TITLE);
+}
+
+
+<div class="col-md-9 col-md-push-3">
+
+    <div class="row">
+        <div class="product-gallery-container">
+            <div class="product-zoom-wrapper">
+                <div class="product-zoom-container">
+                    <img class="xzoom" id="product-zoom" src="@product.MMM00_IMG" data-xoriginal="@product.MMM00_IMG" alt="Zoom image" width="100%" />
+                </div><!-- End .product-zoom-container -->
+            </div><!-- End .product-zoom-wrapper -->
+
+            <div class="product-gallery-wrapper">
+                <div class="owl-data-carousel owl-carousel product-gallery"
+                     data-owl-settings='{ "items":4, "margin":14, "nav": true, "dots":false }'
+                     data-owl-responsive='{"240": {"items": 2}, "360": {"items": 3}, "768": {"items": 4}, "992": {"items": 3}, "1200": {"items": 4} }'>
+
+                    <a href="#" data-image="@product.MMM00_IMG" data-zoom-image="@product.MMM00_IMG" class="product-gallery-item">
+                        <img src="@product.MMM00_IMG" alt="product-small-1">
+                    </a>
+
+                </div><!-- End .product-gallery -->
+            </div><!-- End .product-gallery-wrapper -->
+        </div><!-- End .product-gallery-container -->
+
+        <div class="product-details">
+            <h2 class="product-title">@product.MMM00_TITLE</h2>
+
+            <div class="product-meta-row">
+                <div class="product-price-container">
+                    <span class="product-price">@string.Format("{0:C2}", product.PRICE)</span>
+                </div><!-- Endd .product-price-container -->
+            </div><!-- End .product-meta-row -->
+            <div class="product-content">
+                <p>@product.MMM00_DESC750</p>
+            </div><!-- End .product-content -->
+
+            <ul class="product-meta-list">
+                <li><label>Stok:</label> <span class="product-stock">@string.Format("{0}", product.IN_STOCK == true ? "EVET" : "HAYIR")</span></li>
+            </ul>
+
+            <div class="product-action">
+                <div class="product-quantity">
+                    <label>Miktar:</label>
+                    <input class="single-product-quantity form-control" type="text" value="1">
+                </div><!-- end .product-quantity -->
+
+                <a href="#" class="btn btn-accent btn-addtobag">Sepete Ekle</a>
+            </div><!-- End .product-action -->
+        </div><!-- End .product-details -->
+    </div><!-- End .row -->
+
+    <div class="product-details-tab">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Açıklama</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,</p>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+            </div><!-- End .tab-pane -->
+        </div>
+    </div><!-- End .product-details-tab -->
+
+    <div class="mb50"></div><!-- margin -->
+</div><!-- End .col-md-9 -->

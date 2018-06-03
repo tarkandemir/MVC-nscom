@@ -1,0 +1,16 @@
+﻿@{
+    MVCProject.DAL.URM00 loginUser = (MVCProject.DAL.URM00)Session["loginUser"];
+}
+<ul class="top-links" id="topLinks">
+    @{
+        if (loginUser == null)
+        {
+            <li><a href="/giris">Giriş Yap</a></li>
+        }
+        else
+        {
+            <li><a href="/hesabim">@loginUser.FIRSTNAME</a></li>
+        }
+    }
+    <li><a href="/sepetim">Sepetim</a></li>
+</ul>

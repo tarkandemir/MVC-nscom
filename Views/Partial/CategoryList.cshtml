@@ -1,0 +1,37 @@
+﻿@model MVCProject.BLL.ModelList
+
+<aside class="col-md-3 col-md-pull-9 sidebar sidebar-shop">
+    <div class="widget widget-box widget-shop-category active">
+        <h3 class="widget-title">Kategori</h3>
+
+        <ul class="shop-category-list accordion">
+
+            @{
+                int tsay = 0;
+                List<MVCProject.DAL.MMG00> categoryList = (List<MVCProject.DAL.MMG00>)Model.d1;
+
+                MVCProject.BLL.GeneralOp generalOp = new MVCProject.BLL.GeneralOp();
+
+                foreach (MVCProject.DAL.MMG00 item in categoryList)
+                {
+                    tsay++;
+                    <li>
+                        <a href="/urunler/@generalOp._friendlyURLTitle(item.MMG00_TITLE)-g-@item.MMG00_CODE">@item.MMG00_TITLE</a>
+                        @{
+                            if (item.MMH00.Count > 0)
+                            {
+                                <button class="accordion-btn collapsed" type="button" data-toggle="collapse" data-target="#accordion-ul-@tsay" aria-expanded="false" aria-controls="accordion-ul-@tsay"><span class="accordion-icon"></span></button>
+                                <ul class="collapse" id="accordion-ul-@tsay" aria-expanded="false">
+                                    @foreach (MVCProject.DAL.MMH00 item2 in item.MMH00.ToList())
+                                    {
+                                        <li><a href="/urunler/@generalOp._friendlyURLTitle(item2.MMH00_TITLE)-c-@item2.MMH00_CODE"><i class="fa fa-caret-right"></i>@item2.MMH00_TITLE</a></li>
+                                    }
+                                </ul>
+                            }
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div><!-- End .widget -->
+</aside><!-- End .col-md-3 -->

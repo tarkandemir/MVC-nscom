@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | nurspot.com</title>
+
+    <!-- Google Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7COswald:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/assets/images/icons/favicon.png">
+
+    <!-- Modernizr -->
+    <script src="~/assets/js/modernizr.js"></script>
+</head>
+<body>
+
+    <div id="progress" class="modal"></div>
+    <style>
+        #progress {
+            position: fixed;
+            z-index: 1000000;
+            background-image: url(@Url.Content("~/assets/images/loading.gif"));
+            background-repeat: no-repeat;
+            background-position: center;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+        }
+    </style>
+
+    <div id="wrapper">
+        <header class="header sticky-header">
+            <div class="container">
+                <a href="/" class="site-logo" title="Nurspot - Toptan Oyuncak">
+                    <img src="~/assets/images/logo.png" alt="Logo">
+                    <span class="sr-only">Nurspot - Toptan Oyuncak</span>
+                </a>
+
+                <div class="search-form-container">
+                    <a href="#" class="search-form-toggle" title="Aramayı Değiştir"><i class="fa fa-search"></i></a>
+                    <form action="/urunler/arama">
+                        <div class="dropdown search-dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Tüm Kategoriler
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @{Html.RenderAction("Category6Limit", "Partial");}
+                            </ul>
+                        </div><!-- End .dropddown -->
+                        <input type="search" class="form-control" placeholder="Arama" required name="s">
+                        <button type="submit" title="Arama" class="btn"><i class="fa fa-search"></i></button>
+                    </form>
+                </div><!-- End .search-form-container -->
+
+                @{Html.RenderAction("TopLinks", "Partial");}
+                @{Html.RenderAction("CartDropdown", "Partial");}
+
+                <a href="#" class="sidemenu-btn" title="Menu Toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div><!-- End .container-fluid -->
+        </header><!-- End .header -->
+
+        <aside class="sidemenu">
+            <div class="sidemenu-wrapper">
+                <div class="sidemenu-header">
+                    <a href="/" class="sidemenu-logo">
+                        <img src="~/assets/images/logo.png" alt="logo">
+                    </a>
+                </div><!-- End .sidemenu-header -->
+
+                <ul class="metismenu">
+                    <li><a href="/">Anasayfa</a></li>
+                    <!--<li>
+                        <a href="#" aria-expanded="false">Sayfalar <span class="sidemenu-icon"></span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="/hakkimizda">Hakkımızda</a></li>
+                            <li><a href="/iletisim">İletişim</a></li>
+                        </ul>
+                    </li>-->
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                </ul>
+            </div><!-- End .sidemenu-wrapper -->
+        </aside><!-- End .sidemenu -->
+
+        <div class="sidemenu-overlay"></div><!-- End .sidemenu-overlay -->
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    @RenderBody()
+
+                    @{Html.RenderAction("CategoryList", "Partial");}
+
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .main -->
+
+        <footer class="footer">
+            <div class="container">
+                <div class="info-bar">
+                    <div class="info-bar-col">
+                        <h5 class="info-bar-title">MİNİMUM SİPARİŞ BEDELİ</h5>
+                        <p>Minimum sipariş bedeli 250 TL</p>
+                    </div><!-- End .info-bar-col -->
+                    <div class="info-bar-col">
+                        <h5 class="info-bar-title">PARA İADE GARANTİSİ</h5>
+                        <p>%100 para iade garantisi</p>
+                    </div><!-- End .info-bar-col -->
+                    <div class="info-bar-col">
+                        <h5 class="info-bar-title">TELEFON DESTEK</h5>
+                        <p>Son derece müşteri memnuniyeti</p>
+                    </div><!-- End .info-bar-col -->
+                </div><!-- End .info-bar -->
+            </div><!-- End .container -->
+            <div class="footer-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="widget widget-about">
+                                <h4 class="widget-title">İletişim Bilgileri</h4>
+
+                                <address>
+                                    <span>Bağcılar 19 Ada No 20</span>
+                                    <span>İstoç, İstanbul</span>
+                                    <span>+212 514 4296</span>
+                                    <span>+507 242 2579</span>
+                                    <a href="mailto:tahtakalenurticaret@gmail.com">tahtakalenurticaret@gmail.com</a>
+                                </address>
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-md-3 -->
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Kategoriler</h4>
+
+                                <ul class="links">
+                                    @{Html.RenderAction("Category6Limit", "Partial");}
+                                </ul>
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-md-3 -->
+
+                        <div class="clearfix visible-sm"></div><!-- clearfix -->
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Hesabım</h4>
+
+                                <ul class="links">
+                                    <li><a href="/hesabim">Hesap</a></li>
+                                    <li><a href="/giris">Giriş</a></li>
+                                    <li><a href="/sepetim">Sepetim</a></li>
+                                </ul>
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-md-3 -->
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="widget widget-newsletter">
+                                <h4 class="widget-title">E-Bülten</h4>
+                                <p>Bültenimiz için kayıt olun</p>
+
+                                @using (Ajax.BeginForm("_UpdateNewsletter", "UserManagement", new AjaxOptions()
+                                {
+                                    HttpMethod = "GET",
+                                    LoadingElementId = "progress",
+                                    OnSuccess = "NewsletterFormResult(data, status, xhr)"
+                                }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="E-Posta Adresiniz" required name="email">
+                                        <input type="submit" value="EKLE" class="btn">
+                                    </div><!-- End .form-group -->
+                                }
+
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/pages/Nurspot/1559839047600018" class="social-icon" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.youtube.com/channel/UCZO1va3mGtUngT75lZ2JfrA" class="social-icon" title="Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+                                </div>
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-md-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-inner -->
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="copyright">Tarkan Demir - @DateTime.Now.Year. Tüm Hakları Saklıdır</p>
+                    <!--<img src="~/assets/images/cards.png" alt="Payment Methods" class="img-cards">-->
+                </div><!-- End .container -->
+            </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+    </div><!-- End #wrapper -->
+
+    <a id="scroll-top" href="#top" title="Scroll top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- End -->
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+    <!-- REVOLUTION JS FILES -->
+    <script type="text/javascript" src="~/assets/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS
+    (Load Extensions only on Local File Systems !
+    The following part can be removed on Server for On Demand Loading) -->
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/extensions/revolution.extension.video.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery-unobtrusive")
+
+
+    <script src="~/Scripts/jquery.form.js"></script>
+
+
+
+    <script type="text/javascript" src="~/assets/js/site.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            "use strict";
+
+            var revapi;
+            if ($("#rev_slider").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider");
+            } else {
+                revapi = $("#rev_slider").show().revolution({
+                    sliderType: "standard",
+                    jsFileLocation: "~/assets/js/",
+                    sliderLayout: "auto",
+                    dottedOverlay: "none",
+                    delay: 15000,
+                    navigation: {
+                        mouseScrollNavigation: "off",
+                        onHoverStop: "off",
+                        touch: {
+                            touchenabled: "on"
+                        },
+                        arrows: {
+                            style: "custom",
+                            enable: true,
+                            hide_onmobile: false,
+                            hide_under: 768,
+                            hide_onleave: false,
+                            tmp: '',
+                            left: {
+                                h_align: "left",
+                                v_align: "bottom",
+                                h_offset: 63,
+                                v_offset: 48
+                            },
+                            right: {
+                                h_align: "left",
+                                v_align: "bottom",
+                                h_offset: 85,
+                                v_offset: 48
+                            }
+                        },
+                        bullets: {
+                            enable: false
+                        }
+                    },
+                    responsiveLevels: [1200, 992, 768, 480],
+                    gridwidth: [870, 679, 640, 480],
+                    gridheight: [468, 400, 360, 300],
+                    lazyType: "smart",
+                    spinner: "spinner2",
+                    parallax: {
+                        type: "off"
+                    },
+                    debugMode: false
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

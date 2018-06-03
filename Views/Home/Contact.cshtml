@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "İletişim";
+}
+
+<div class="col-md-9 col-md-push-3">
+    <div class="page-header text-center">
+        <h1>İletişim</h1>
+        <p>
+            Bize Nasıl Ulaşırsınız?
+        </p>
+    </div><!-- End .page-header -->
+
+    <div class="mb20"></div><!-- margin -->
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="contact-info-box">
+                <img src="assets/images/icon-pin.png" alt="Pin">
+                <h3>Adres</h3>
+
+                <address>
+                    <span>Bağcılar 19 Ada No 20</span>
+                    <span>İstoç, İstanbul</span>
+                </address>
+            </div><!-- End .contact-info-box -->
+        </div><!-- End .col-sm-4 -->
+        <div class="col-sm-4">
+            <div class="contact-info-box">
+                <img src="assets/images/icon-mobile.png" alt="Pin">
+                <h3>Telefon</h3>
+                <p><strong>Ofis :</strong> +212 514 4296</p>
+                <p><strong>Cep :</strong> +507 242 2579</p>
+            </div><!-- End .contact-info-box -->
+        </div><!-- End .col-sm-4 -->
+        <div class="col-sm-4">
+            <div class="contact-info-box">
+                <img src="assets/images/icon-email.png" alt="Pin">
+                <h3>Email</h3>
+                <p><a href="mailto:tahtakalenurticaret@gmail.com">tahtakalenurticaret@gmail.com</a></p>
+            </div><!-- End .contact-info-box -->
+        </div><!-- End .col-sm-4 -->
+    </div><!-- End .row -->
+
+    <div class="mb35 mb20-sm mb10-xs"></div><!-- margin -->
+
+    <div class="title-group text-center">
+        <h2 class="title">Mesaj Gönder</h2>
+        <p class="title-desc">Bize Mesaj Gönder</p>
+    </div><!-- End .title-group -->
+
+    @using (Ajax.BeginForm("_Contact", "Home", new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "progress",
+        OnSuccess = "ContactFormResult(data, status, xhr)"
+    }, new { @class = "contact-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Ad Soyad*</label>
+                    <input type="text" class="form-control" required name="title">
+                </div><!-- End .form-group -->
+
+                <div class="form-group">
+                    <label>E-posta*</label>
+                    <input type="email" class="form-control" required name="email">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-6 -->
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Mesaj*</label>
+                    <textarea cols="30" rows="6" class="form-control" required name="text"></textarea>
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-6 -->
+        </div><!-- End .row -->
+
+        <div class="clearfix text-right">
+            <input type="submit" class="btn btn-accent min-width" value="Mesaj Gönder">
+        </div><!-- End .clearfix -->
+    }
+
+    <div class="title-group text-center">
+        <h2 class="title">Lokasyonumuz</h2>
+        <p class="title-desc">Harita üzerinde Lokasyon</p>
+    </div><!-- End .title-group -->
+
+    <div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6016.40436408194!2d28.819423000000004!3d41.06457300000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf976a9538be4f510!2zxLBzdG_DpyAxOS4gQWRh!5e0!3m2!1str!2str!4v1527605482647" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div><!-- map -->
+</div><!-- End .col-md-9 -->

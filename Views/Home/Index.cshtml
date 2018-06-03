@@ -1,0 +1,237 @@
+﻿@model MVCProject.BLL.ModelList
+
+@{
+    ViewBag.Title = "Toptan oyuncak, toptan folyo balon, toptan sticker";
+    List<MVCProject.DAL.MMM00> productList = (List<MVCProject.DAL.MMM00>)Model.d1;
+    List<MVCProject.DAL.MMM00> productList2 = (List<MVCProject.DAL.MMM00>)Model.d2;
+    MVCProject.BLL.GeneralOp generalOp = new MVCProject.BLL.GeneralOp();
+}
+
+
+<div class="col-md-9 col-md-push-3">
+    <div id="rev_slider_wrapper" class="slider-container rev_slider_wrapper fullwidthbanner-container">
+        <div id="rev_slider" class="rev_slider fullwidthabanner" style="display:none;">
+            <ul>
+                <!-- SLIDE  -->
+                <li data-transition="fade">
+                    <!-- Background Image -->
+                    <img src="~/assets/images/transparent.png" class="rev-slidebg" style="background-color: #eeebe7;" alt="Slider bg">
+
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-0 text-primary"
+                         data-x="['left','left','left','left']" data-hoffset="['68','50','45','30']"
+                         data-y="['center','center','center','center']" data-voffset="['-44','-36','-30','-24']"
+                         data-fontsize="['26','24','22','20']"
+                         data-fontweight="400"
+                         data-lineheight="['36','34','32','30']"
+                         data-width="none"
+                         data-height="none"
+                         data-whitespace="nowrap"
+                         data-frames='[{"delay":600,"speed":800,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         data-responsive_offset="on"
+                         data-elementdelay="0"
+                         style="z-index: 5; white-space: nowrap; letter-spacing: 0.08em; text-transform: uppercase; font-family:'Oswald', sans-serif;">
+                        Oyuncak<br>Modelleri
+                    </div>
+
+                    <a class="tp-caption tp-resizeme rs-parallaxlevel-0"
+                       data-x="['left','left','left','left']" data-hoffset="['68','50','45','30']"
+                       data-y="['center','center','center','center']" data-voffset="['40','36','32','30']"
+                       data-width="none"
+                       data-height="none"
+                       data-fontsize="['13','12','11','10']"
+                       data-fontweight="400"
+                       data-lineheight="['21','20','18','16']"
+                       data-color="#7e6f5c"
+                       data-whitespace="nowrap"
+                       data-frames='[{"delay":1000,"speed":800,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                       data-responsive_offset="on"
+                       style="z-index: 7; letter-spacing: 0.075em; text-transform: uppercase; text-decoration: underline;" href="/tum-urunler">
+                        Şimdi Alışverişe Başla
+                    </a>
+
+                    <div class="tp-caption tp-resizeme"
+                         data-frames='[{"delay":600,"speed":1000,"frame":"0","from":"x:right;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         data-type="image"
+                         data-x="['right','right','right','right']" data-hoffset="['110','90','80','60']"
+                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']"
+                         data-width="none"
+                         data-height="none"><img src="~/assets/images/slider/item1.png" alt="Item" width="452" height="428" data-ww="['452px', '380px', '300px', '240px']" data-hh="['428px', '359px', '331px', '227px']"></div>
+                </li>
+
+                <!-- SLIDE  -->
+                <li data-transition="fade">
+                    <!-- Background Image -->
+                    <img src="~/assets/images/transparent.png" class="rev-slidebg" style="background-color: #eeebe7;" alt="Slider bg">
+
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-0 text-primary"
+                         data-x="['left','left','left','left']" data-hoffset="['68','50','45','30']"
+                         data-y="['center','center','center','center']" data-voffset="['-44','-36','-30','-24']"
+                         data-fontsize="['26','24','22','20']"
+                         data-fontweight="400"
+                         data-lineheight="['36','34','32','30']"
+                         data-width="none"
+                         data-height="none"
+                         data-whitespace="nowrap"
+                         data-frames='[{"delay":600,"speed":800,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         data-responsive_offset="on"
+                         data-elementdelay="0"
+                         style="z-index: 5; white-space: nowrap; letter-spacing: 0.08em; text-transform: uppercase; font-family:'Oswald', sans-serif;">
+                        Duvar Sticker<br>Çeşitleri
+                    </div>
+
+                    <a class="tp-caption tp-resizeme rs-parallaxlevel-0"
+                       data-x="['left','left','left','left']" data-hoffset="['68','50','45','30']"
+                       data-y="['center','center','center','center']" data-voffset="['40','36','32','30']"
+                       data-width="none"
+                       data-height="none"
+                       data-fontsize="['13','12','11','10']"
+                       data-fontweight="400"
+                       data-lineheight="['21','20','18','16']"
+                       data-color="#7e6f5c"
+                       data-whitespace="nowrap"
+                       data-frames='[{"delay":1000,"speed":800,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                       data-responsive_offset="on"
+                       style="z-index: 7; letter-spacing: 0.075em; text-transform: uppercase; text-decoration: underline;" href="/tum-urunler">
+                        Şimdi Alışverişe Başla
+                    </a>
+
+                    <div class="tp-caption tp-resizeme"
+                         data-frames='[{"delay":600,"speed":1000,"frame":"0","from":"x:right;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         data-type="image"
+                         data-x="['right','right','right','right']" data-hoffset="['140','120','100','80']"
+                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']"
+                         data-width="none"
+                         data-height="none">
+                        <img src="~/assets/images/slider/item2.png" alt="Item" width="365" height="454" data-ww="['365px', '300px', '240px', '200px']" data-hh="['454px', '373px', '298px', '248px']">
+                    </div>
+                </li>
+
+                <li data-transition="fade">
+                    <!-- Background Image -->
+                    <img src="~/assets/images/transparent.png" class="rev-slidebg" style="background-color: #eeebe7;" alt="Slider bg">
+
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-0 text-primary"
+                         data-x="['left','left','left','left']" data-hoffset="['68','50','45','30']"
+                         data-y="['center','center','center','center']" data-voffset="['-44','-36','-30','-24']"
+                         data-fontsize="['26','24','22','20']"
+                         data-fontweight="400"
+                         data-lineheight="['36','34','32','30']"
+                         data-width="none"
+                         data-height="none"
+                         data-whitespace="nowrap"
+                         data-frames='[{"delay":600,"speed":800,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         data-responsive_offset="on"
+                         data-elementdelay="0"
+                         style="z-index: 5; white-space: nowrap; letter-spacing: 0.08em; text-transform: uppercase; font-family:'Oswald', sans-serif;">
+                        Dilek<br>Fenerleri
+                    </div>
+
+                    <a class="tp-caption tp-resizeme rs-parallaxlevel-0"
+                       data-x="['left','left','left','left']" data-hoffset="['68','50','45','30']"
+                       data-y="['center','center','center','center']" data-voffset="['40','36','32','30']"
+                       data-width="none"
+                       data-height="none"
+                       data-fontsize="['13','12','11','10']"
+                       data-fontweight="400"
+                       data-lineheight="['21','20','18','16']"
+                       data-color="#7e6f5c"
+                       data-whitespace="nowrap"
+                       data-frames='[{"delay":1000,"speed":800,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                       data-responsive_offset="on"
+                       style="z-index: 7; letter-spacing: 0.075em; text-transform: uppercase; text-decoration: underline;" href="/tum-urunler">
+                        Şimdi Alışverişe Başla
+                    </a>
+
+                    <div class="tp-caption tp-resizeme"
+                         data-frames='[{"delay":600,"speed":1000,"frame":"0","from":"x:right;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                         data-type="image"
+                         data-x="['right','right','right','right']" data-hoffset="['110','90','80','60']"
+                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']"
+                         data-width="none"
+                         data-height="none"><img src="~/assets/images/slider/item3.png" alt="Item" width="452" height="428" data-ww="['452px', '380px', '300px', '240px']" data-hh="['428px', '359px', '331px', '227px']"></div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer tp-bottom" style="display:none; height: 2px; background-color: rgba(0, 0, 0, 0.2);"></div>
+        </div><!-- End #rev_slider -->
+    </div><!-- END REVOLUTION SLIDER -->
+
+    <h3 class="carousel-title">Özel Ürünler</h3>
+    <div class="owl-data-carousel owl-carousel"
+         data-owl-settings='{ "items":4, "nav": true, "dots":false }'
+         data-owl-responsive='{ "480": {"items": 2}, "768": {"items": 3}, "992": {"items": 3}, "1200": {"items": 4} }'>
+
+        @{
+            foreach (MVCProject.DAL.MMM00 item in productList)
+            {
+                <div class="product">
+                    <figure class="product-image-container">
+                        <a href="/urun/@generalOp._friendlyURLTitle(item.MMM00_TITLE)-m-@item.MMM00_ID" title="@item.MMM00_TITLE" class="product-image-link">
+                            <img class="owl-lazy" src="@item.MMM00_IMG" data-src="@item.MMM00_IMG" width="195" height="255" alt="Product Image">
+                        </a>
+                        <div class="product-action">
+                            <a href="#" class="btn-product btn-wishlist" title="Favorilerime Ekle">
+                                <i class="icon-product icon-heart"></i>
+                            </a>
+                            <a href="#" class="btn-product btn-add-cart" title="Sepete Ekle">
+                                <i class="icon-product icon-bag"></i>
+                                <span>Sepete Ekle</span>
+                            </a>
+                        </div><!-- End .product-action -->
+                    </figure>
+                    <h3 class="product-title">
+                        <a href="/urun/@generalOp._friendlyURLTitle(item.MMM00_TITLE)-m-@item.MMM00_ID">@item.MMM00_TITLE</a>
+                    </h3>
+                    <div class="product-price-container">
+                        <span class="product-price">@string.Format("{0:C2}", item.PRICE)</span>
+                    </div><!-- Endd .product-price-container -->
+                </div><!-- End .product -->
+
+            }
+
+        }
+
+
+    </div><!-- End .owl-data-carousel -->
+
+    <div class="mb30 mb10-xs"></div><!-- margin -->
+
+    <h3 class="carousel-title">Çok Satanlar</h3>
+    <div class="owl-data-carousel owl-carousel"
+         data-owl-settings='{ "items":4, "nav": true, "dots":false }'
+         data-owl-responsive='{ "480": {"items": 2}, "768": {"items": 3}, "992": {"items": 3}, "1200": {"items": 4} }'>
+
+        @{
+            foreach (MVCProject.DAL.MMM00 item in productList2)
+            {
+                <div class="product">
+                    <figure class="product-image-container">
+                        <a href="/urun/@generalOp._friendlyURLTitle(item.MMM00_TITLE)-m-@item.MMM00_ID" title="@item.MMM00_TITLE" class="product-image-link">
+                            <img class="owl-lazy" src="@item.MMM00_IMG" data-src="@item.MMM00_IMG" width="195" height="255" alt="Product Image">
+                        </a>
+                        <div class="product-action">
+                            <a href="#" class="btn-product btn-wishlist" title="Favorilerime Ekle">
+                                <i class="icon-product icon-heart"></i>
+                            </a>
+                            <a href="#" class="btn-product btn-add-cart" title="Sepete Ekle">
+                                <i class="icon-product icon-bag"></i>
+                                <span>Sepete Ekle</span>
+                            </a>
+                        </div><!-- End .product-action -->
+                    </figure>
+                    <h3 class="product-title">
+                        <a href="/urun/@generalOp._friendlyURLTitle(item.MMM00_TITLE)-m-@item.MMM00_ID">@item.MMM00_TITLE</a>
+                    </h3>
+                    <div class="product-price-container">
+                        <span class="product-price">@string.Format("{0:C2}", item.PRICE)</span>
+                    </div><!-- Endd .product-price-container -->
+                </div><!-- End .product -->
+
+            }
+
+        }
+
+
+    </div><!-- End .owl-data-carousel -->
+
+    <div class="mb50 visible-sm visible-xs"></div><!-- margin -->
+</div><!-- End .col-md-9 -->

@@ -1,0 +1,14 @@
+﻿@model MVCProject.BLL.ModelList
+
+@{
+    List<MVCProject.DAL.MMG00> categoryList = (List<MVCProject.DAL.MMG00>)Model.d1;
+
+    MVCProject.BLL.GeneralOp generalOp = new MVCProject.BLL.GeneralOp();
+
+    foreach (MVCProject.DAL.MMG00 item in categoryList)
+    {
+        <li>
+            <a href="/urunler/@generalOp._friendlyURLTitle(item.MMG00_TITLE)-g-@item.MMG00_CODE">@item.MMG00_TITLE</a>
+        </li>
+    }
+}

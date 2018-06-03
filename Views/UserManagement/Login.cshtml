@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Üye Girişi";
+}
+
+<div class="col-md-9 col-md-push-3">
+    <div class="page-header text-center">
+        <h1>Üye Girişi</h1>
+        <p>Hesabınıza giriş yapın</p>
+    </div><!-- End .page-header -->
+
+    @using (Ajax.BeginForm("_Login", "UserManagement", new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "progress",
+        OnSuccess = "LoginFormResult(data, status, xhr)"
+    }, new { @class = "signup-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <label>E-posta Adresi*</label>
+            <input type="email" class="form-control" required name="EMAIL">
+        </div><!-- End .form-group -->
+
+        <div class="form-group">
+            <label>Şifre*</label>
+            <input type="password" class="form-control" required name="URM00_PASSWD">
+        </div><!-- End .form-group -->
+
+        <div class="clearfix form-more">
+            <div class="checkbox pull-left">
+                <label>
+                    <input type="checkbox" class="form-control" name="REMEMBER">
+                    <span class="checkbox-box"><span class="check"></span></span>
+                    Beni Hatırla
+                </label>
+            </div><!-- End .checkbox -->
+            <a href="/sifremi-unuttum" class="help-link">ŞİFRENİ Mİ UNUTTUN?</a>
+        </div><!-- End .form-more -->
+
+        <div class="clearfix form-action">
+            <a href="/kayit-ol" class="btn btn-primary pull-left min-width">YENİ HESAP</a>
+
+            <input type="submit" class="btn btn-accent pull-right min-width" value="GİRİŞ YAP">
+        </div><!-- End .form-action -->
+    }
+</div><!-- End .col-md-9 -->

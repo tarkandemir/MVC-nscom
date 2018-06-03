@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Kayıt Ol";
+}
+
+<div class="col-md-9 col-md-push-3">
+    <div class="page-header text-center">
+        <h1>Kayıt Ol</h1>
+        <p>Yeni bir hesap oluştur</p>
+    </div><!-- End .page-header -->
+
+    @using (Ajax.BeginForm("_Register", "UserManagement", new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "progress",
+        OnSuccess = "RegisterFormResult(data, status, xhr)"
+    }, new { @class = "signup-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Ad*</label>
+                    <input type="text" class="form-control" required name="FIRSTNAME">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Soyad*</label>
+                    <input type="text" class="form-control" required name="SURNAME">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Email*</label>
+                    <input type="email" class="form-control" required name="EMAIL">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+        </div><!-- End .row -->
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Şifre*</label>
+                    <input type="password" class="form-control" required name="URM00_PASSWD">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Telefon*</label>
+                    <input type="text" class="form-control" required name="PHONE_1">
+                </div><!-- End .form-group -->
+            </div><!-- End .col-sm-4 -->
+
+            <div class="col-sm-4">
+                <div class="radio-inline-container">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="GENDER" value="M">
+                            <span class="check"></span>
+                            <span class="circle"></span>
+                            Erkek
+                        </label>
+                    </div><!-- End .radio -->
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="GENDER" value="F">
+                            <span class="check"></span>
+                            <span class="circle"></span>
+                            Kadın
+                        </label>
+                    </div><!-- End .radio -->
+                </div><!-- End .raddio-inline-container -->
+            </div><!-- End .col-sm-4 -->
+        </div><!-- End .row -->
+
+        <div class="clearfix form-action">
+            <input type="submit" class="btn btn-primary min-width" value="Kayıt Ol">
+        </div><!-- End .form-action -->
+    }
+</div><!-- End .col-md-9 -->
